@@ -4,12 +4,18 @@ import (
 	"fmt"
 	"github.com/ilyakaznacheev/cleanenv"
 	"os"
+	"time"
 )
 
 type Config struct {
-	AppHost    string `env:"APP_HOST" env-required:"true"`
-	AppPort    string `env:"APP_PORT" env-required:"true"`
-	AppEnv     string `env:"APP_ENV" env-required:"true"`
+	AppHost string `env:"APP_HOST" env-required:"true"`
+	AppPort string `env:"APP_PORT" env-required:"true"`
+	AppEnv  string `env:"APP_ENV" env-required:"true"`
+
+	AppReadTimeout  time.Duration `env:"APP_READ_TIMEOUT" env-required:"true"`
+	AppWriteTimeout time.Duration `env:"APP_WRITE_TIMEOUT" env-required:"true"`
+	AppIdleTimeout  time.Duration `env:"APP_IDLE_TIMEOUT" env-required:"true"`
+
 	PgHost     string `env:"PG_HOST" env-required:"true"`
 	PgPort     string `env:"PG_PORT" env-required:"true"`
 	PgUser     string `env:"PG_USER" env-required:"true"`
